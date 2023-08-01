@@ -29,10 +29,9 @@ def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
 #
 # """
 
-data_json = { "resturant employees" :[
-    {"name":"Shyam", "email":"shyamjaiswal@gmail.com"},
-    {"name":"Bob", "email":"bob32@gmail.com"},
-    {"name":"Jai", "email":"jai87@gmail.com"}
+data_json = { "employees" :[
+    {"name":"Chungmin", "email":"cndald0725@gmail.com"},
+    {"name":"Doosan", "email":"chungmin.lee@doosan.com"}
 ]}
 
 prompt = f"""
