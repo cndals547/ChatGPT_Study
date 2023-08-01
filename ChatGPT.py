@@ -7,8 +7,8 @@ from io import BytesIO
 from PyPDF2 import PdfReader
 
 # API Kkey 값
-OPENAI_API_KEY = "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"
-KAKAO_API_KEY = "3d089eef40c22ebafc5ceb849a724cfe"
+OPENAI_API_KEY = "APIKEY"
+KAKAO_API_KEY = "APIKEY"
 
 # API Key 초기화
 openai.api_key = OPENAI_API_KEY
