@@ -1,1 +1,1 @@
-# ChatGPT_Study
+# ChatGPT_Study Based On GPT-3 turbo
