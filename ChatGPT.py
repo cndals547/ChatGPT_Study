@@ -1,17 +1,16 @@
-import sys
+import os
 import openai
 from PyKakao import Karlo
 import requests
 from PIL import Image
 from io import BytesIO
 from PyPDF2 import PdfReader
+from dotenv import load_dotenv, find_dotenv
 
-# API Kkey 값
-OPENAI_API_KEY = "APIKEY"
+_ = load_dotenv(find_dotenv()) # read local .env file
+openai.api_key = os.getenv('OPENAI_API_KEY')
 KAKAO_API_KEY = "APIKEY"
 
-# API Key 초기화
-openai.api_key = OPENAI_API_KEY
 kakao_api_key = Karlo(service_key=KAKAO_API_KEY)
 model = "gpt-3.5-turbo"
 question = input("무엇을 물어볼까요?: ")

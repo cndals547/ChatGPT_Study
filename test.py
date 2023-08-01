@@ -4,8 +4,12 @@ from langchain.agents import initialize_agent
 from langchain.agents import AgentType
 from langchain.llms import OpenAI
 
+from dotenv import load_dotenv, find_dotenv
+
+_ = load_dotenv(find_dotenv()) # read local .env file
+
 os.environ["SERPAPI_API_KEY"] = "APIKEY"
-os.environ["OPENAI_API_KEY"] = "APIKEY"
+os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
 
 llm = OpenAI(temperature=0)
 
