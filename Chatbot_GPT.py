@@ -1,3 +1,4 @@
+import sys
 import os
 import openai
 import panel as pn  # GUI
@@ -37,6 +38,9 @@ def collect_messages(_):
         pn.Row('Assistant:', pn.pane.Markdown(response, width=600, styles={'background-color': '#F6F6F6'})))
 
     return pn.Column(*panels)
+
+def onClose():
+   sys.exit()
 
 messages =  [
 {'role':'system', 'content':'You are friendly chatbot.'},
@@ -83,17 +87,19 @@ bottled water 5.00 \
 
 inp = pn.widgets.TextInput(value="Hi", placeholder='Enter text here…')
 button_conversation = pn.widgets.Button(name="Chat!")
+button_exit = pn.widgets.Button(name="Exit")
+#button_exit.on_click(onClose())
 
 interactive_conversation = pn.bind(collect_messages, button_conversation)
 
 dashboard = pn.Column(
     inp,
-    pn.Row(button_conversation),
+    pn.Row(button_conversation, button_exit),
     pn.panel(interactive_conversation, loading_indicator=True, height=300),
 )
 
 dashboard.show()
-messages =  context.copy()
+messages = context.copy()
 messages.append(
 {'role':'system', 'content':'create a json summary of the previous food order. Itemize the price for each item\
  The fields should be 1) pizza, include size 2) list of toppings 3) list of drinks, include size   4) list of sides include size  5)total price '},
